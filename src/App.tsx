@@ -2,30 +2,38 @@ import "./App.css";
 import QueryApp from "./querytest";
 import CustomCarousel from "./components/CustomTop";
 import CustomSlide from "./components/CustomSlide";
+import CustomList from "./components/CustomList";
 import { Radio } from "antd";
 import { useState } from "react";
 import Dps from "./pages/DefaultPage";
 function App() {
-  const [pageName, setPage] = useState('info');
+  const [pageName, setPage] = useState("info");
   function switchPage(e) {
-    const v = e.target.value
-    setPage(v)
-    console.log(v)
+    const v = e.target.value;
+    setPage(v);
+    console.log(v);
   }
   return (
     <>
-      
       {pageName === "info" && (
         <>
           <CustomCarousel />
           <CustomSlide />
+          <CustomList />
         </>
       )}
 
       <Radio.Group
         // value={size}
         // onChange={onChange}
-        style={{ marginBottom: 16, width: "100%", flex: 1 }}
+        style={{
+          marginBottom: 16,
+          width: "100%",
+          flex: 1,
+          position: "fixed",
+          left: "0px",
+          bottom: "0px"
+        }}
       >
         <Radio.Button value="info" style={{ flex: 1 }} onClick={switchPage}>
           报名
